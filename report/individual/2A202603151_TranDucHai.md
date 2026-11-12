@@ -15,8 +15,8 @@ Ghi tên ZIP đúng như file trong `submissions/` và số ảnh đã vẽ, Sav
 | Task | File ZIP đúng tên | Hoàn thành mấy ảnh | Điểm tối đa (coach chấm sau) |
 | --- | --- | ---: | ---: |
 | easy_semantic | [easy_semantic.zip](../../submissions/easy_semantic.zip)| 3 / 3 | 20 |
-| medium_instance | … | 1 / 3 | 32 |
-| hard_panoptic | … | 0 / 2 | 30 |
+| medium_instance | [medium_instance.zip](../../submissions/medium_instance.zip) | 3 / 3 | 32 |
+| hard_panoptic | [hard_panoptic.zip](../../submissions/hard_panoptic.zip) | 2 / 2 | 30 |
 | cp1_holes | … | 0 / 1 | 3 |
 | cp2_slice | … | 0 / 1 | 3 |
 | cp5_occlusion | … | 0 / 1 | 3 |
@@ -53,6 +53,6 @@ Mỗi ca là một **vùng cụ thể** khiến bạn phải cân nhắc hai cá
 
 | Ảnh/vị trí | Hai cách hiểu có thể | Quy tắc/chứng cứ | Quyết định hoặc câu hỏi cho coach |
 | --- | --- | --- | --- |
-| 1 | … | … | … |
+|`hard_panoptic`-000000460147: ô tô trên xe chở ô tô | Mỗi ô tô là một car riêng, hoặc chỉ tính vào mask truck | Các xe nhìn rõ là xe con; cùng lớp sát nhau vẫn là hai instance | Vẽ từng ô tô thành car riêng và vẽ xe chở là truck. Câu hỏi coach: mask truck phủ lên các ô tô trên xe (chồng lấn) thì có cần khoét ra không? |
 | 2 | … | … | … |
 | 3 | … | … | … |
