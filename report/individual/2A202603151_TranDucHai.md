@@ -17,9 +17,9 @@ Ghi tên ZIP đúng như file trong `submissions/` và số ảnh đã vẽ, Sav
 | easy_semantic | [easy_semantic.zip](../../submissions/easy_semantic.zip)| 3 / 3 | 20 |
 | medium_instance | [medium_instance.zip](../../submissions/medium_instance.zip) | 3 / 3 | 32 |
 | hard_panoptic | [hard_panoptic.zip](../../submissions/hard_panoptic.zip) | 2 / 2 | 30 |
-| cp1_holes | … | 0 / 1 | 3 |
-| cp2_slice | … | 0 / 1 | 3 |
-| cp5_occlusion | … | 0 / 1 | 3 |
+| cp1_holes | [cp1_holes.zip](../../submissions/cp1_holes.zip) | 1 / 1 | 3 |
+| cp2_slice | [cp2_slice.zip](../../submissions/cp2_slice.zip) | 1 / 1 | 3 |
+| cp5_occlusion | [cp5_occlusion.zip](../../submissions/cp5_occlusion.zip) | 1 / 1 | 3 |
 | cp3_thin | … | 0 / 1 | 3 |
 | cp4_curb | … | 0 / 1 | 3 |
 | cp6_coverage | … | 0 / 1 | 3 |
@@ -33,7 +33,7 @@ Chọn object đầu tiên bạn tự vẽ ở `medium_instance`, trước khi x
 
 - Ảnh, vị trí và object Medium đầu tiên tự vẽ: 000000181542.jpg, người ngồi xe máy ở phía đằng sau người đi bộ mặc áo dài. Vẽ từ đỉnh đầu xuống đến bàn chân.
 - Class và quy tắc tôi dùng để chọn biên: class `person`. Bám theo đường viền ngoài của người, chỉ lấy phần nhìn thấy, không lấy xe hoặc nền xung quanh. Ở chỗ người bị vật khác che khuất, chỉ vẽ theo đường biên nhìn thấy.
-- Nếu dùng gợi ý sau đó: vùng gợi ý cắt vào vật thể/ cắt vào nền, sửa lại đường biên thủ công ôm sát vào vật thể.
+- Nếu dùng gợi ý sau đó: không dùng gợi ý, vẽ thủ công với polygon hoàn toàn cho object.
 
 ## 3. Một lỗi tôi tìm thấy và sửa
 
@@ -53,6 +53,6 @@ Mỗi ca là một **vùng cụ thể** khiến bạn phải cân nhắc hai cá
 
 | Ảnh/vị trí | Hai cách hiểu có thể | Quy tắc/chứng cứ | Quyết định hoặc câu hỏi cho coach |
 | --- | --- | --- | --- |
-|`hard_panoptic`-000000460147: ô tô trên xe chở ô tô | Mỗi ô tô là một car riêng, hoặc chỉ tính vào mask truck | Các xe nhìn rõ là xe con; cùng lớp sát nhau vẫn là hai instance | Vẽ từng ô tô thành car riêng và vẽ xe chở là truck. Câu hỏi coach: mask truck phủ lên các ô tô trên xe (chồng lấn) thì có cần khoét ra không? |
-| 2 | … | … | … |
-| 3 | … | … | … |
+|`hard_panoptic`<br>000000460147: ô tô trên xe chở ô tô | Mỗi ô tô là một car riêng, hoặc chỉ tính vào mask truck | Các xe nhìn rõ là xe con; cùng lớp sát nhau vẫn là hai instance | Vẽ từng ô tô thành car riêng và vẽ xe chở là truck. | Câu hỏi coach: mask truck phủ lên các ô tô trên xe (chồng lấn) thì có cần khoét ra không? |
+| `easy_semantic`<br>817bca71-00000000: vệt hồng giữa lòng đường | Vệt đó là sidewalk, hoặc chỉ là phản chiếu ánh nắng trên kính | Trong ảnh gốc, vệt nằm giữa mặt đường | Chọn road vì nhãn theo bề mặt, không theo màu phản chiếu. |
+| `medium_instance`<br>000000373353: người đi bộ che một phần taxi vàng ở giữa ảnh | Vẽ car bao gồm cả phần bị người che, hoặc chỉ gồm phần xe nhìn thấy | instance segmentation có vật thể bị che khuất | Tách person riêng, giới hạn car ở phần xe nhìn thấy. |
